@@ -14,6 +14,7 @@ import { FlagContext } from "./flag-target";
 import { ChatSim } from "./chat-sim";
 import { BrowserSim } from "./browser-sim";
 import { WalletPromptSim } from "./wallet-prompt-sim";
+import { InboxSim } from "./inbox-sim";
 
 function StepView({ step }: { step: Step }) {
   switch (step.kind) {
@@ -23,6 +24,8 @@ function StepView({ step }: { step: Step }) {
       return <BrowserSim step={step} />;
     case "wallet-prompt":
       return <WalletPromptSim step={step} />;
+    case "inbox":
+      return <InboxSim step={step} />;
   }
 }
 

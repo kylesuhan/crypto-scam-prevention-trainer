@@ -77,7 +77,27 @@ export type WalletPromptStep = {
   choices: Choice[];
 };
 
-export type Step = ChatStep | BrowserStep | WalletPromptStep;
+export type EmailBlock = Flaggable &
+  (
+    | { type: "text"; text: string }
+    /** `href` is shown the way a mail client previews a link on hover. Never a real URL. */
+    | { type: "button"; text: string; href: string }
+    | { type: "code"; label: string; value: string }
+    | { type: "footer"; text: string }
+  );
+
+export type InboxStep = {
+  kind: "inbox";
+  prompt: string;
+  from: Flaggable & { name: string; address: string };
+  subject: Flaggable & { value: string };
+  received: string;
+  blocks: EmailBlock[];
+  flags: RedFlag[];
+  choices: Choice[];
+};
+
+export type Step = ChatStep | BrowserStep | WalletPromptStep | InboxStep;
 
 export type Scenario = {
   slug: string;

@@ -9,6 +9,8 @@ export function flaggablesOf(step: Step): Flaggable[] {
       return [step.url, ...step.blocks];
     case "wallet-prompt":
       return [step.origin, ...step.balanceChanges, ...step.instructions, ...step.notes];
+    case "inbox":
+      return [step.from, step.subject, ...step.blocks];
   }
 }
 

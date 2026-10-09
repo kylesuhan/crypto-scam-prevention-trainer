@@ -244,9 +244,12 @@ crypto-scam-prevention-trainer/
 - Vercel project linked, Preview deploys on PRs
 - Landing page with clear "we will never ask for your seed phrase" messaging
 
-### Phase 1 — Training MVP, no blockchain (1–2 weeks) — 🚧 in progress
-- Track 1 scenarios so far: The Airdrop That Wasn't, The Helpful Support Agent, Double Your SOL,
-  The Wallet From an Ad. Content checks run in Vitest (`npm test`).
+### Phase 1 — Training MVP, no blockchain (1–2 weeks) — 🚧 Track 1 content complete
+- Track 1 (6 scenarios): The Airdrop That Wasn't, Twelve Words, The Helpful Support Agent,
+  Double Your SOL, Your Account Has Been Locked, The Wallet From an Ad.
+- Simulators built: ChatSim, BrowserSim, WalletPromptSim, InboxSim. Content checks run in
+  Vitest (`npm test`).
+- Remaining: deploy to Vercel, test with real people, then the Track 1 final assessment.
 - Simulation engine + `ChatSim`, `BrowserSim`, `WalletPromptSim`
 - Track 1 (Common) fully built: 6 lessons, ~15 scenarios
 - Local progress (localStorage) → then Neon + anonymous accounts

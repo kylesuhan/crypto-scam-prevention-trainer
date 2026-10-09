@@ -3,12 +3,16 @@ import { airdropThatWasnt } from "./airdrop-that-wasnt";
 import { helpfulSupportAgent } from "./helpful-support-agent";
 import { doubleYourSol } from "./double-your-sol";
 import { walletFromAnAd } from "./wallet-from-an-ad";
+import { accountLocked } from "./account-locked";
+import { twelveWords } from "./twelve-words";
 
 // Order within a track is the recommended learning order.
 export const scenarios: Scenario[] = [
   airdropThatWasnt,
+  twelveWords,
   helpfulSupportAgent,
   doubleYourSol,
+  accountLocked,
   walletFromAnAd,
 ];
 

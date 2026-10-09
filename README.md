@@ -33,7 +33,7 @@ npm test
 ```
 src/
   app/                     routes: /, /learn, /simulate/[scenario]
-  components/sims/         simulation engine: ScenarioPlayer, ChatSim, BrowserSim, WalletPromptSim
+  components/sims/         simulation engine: ScenarioPlayer, ChatSim, BrowserSim, WalletPromptSim, InboxSim
   content/tracks.ts        the five training tracks
   content/scenarios/       scenario definitions (typed data, one file per scenario)
   lib/sims/                scenario types and scoring
