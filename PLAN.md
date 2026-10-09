@@ -250,6 +250,12 @@ crypto-scam-prevention-trainer/
 - Simulators built: ChatSim, BrowserSim, WalletPromptSim, InboxSim. Content checks run in
   Vitest (`npm test`).
 - Remaining: deploy to Vercel, test with real people, then the Track 1 final assessment.
+- Track 5 started: ChartSim (TradingView lightweight-charts + seeded synthetic patterns) with
+  "Spot the Rug" (cliff, honeypot, wash trading) and "The Slow Bleed" (launch sniping,
+  staircase, coordinated promotion).
+- **Token Check (`/analyze`)**: paste a Solana mint → deterministic Guard Score from on-chain
+  (RPC) and market (DexScreener) facts, explained by Claude. Score is computed in code, never by
+  the AI. Needs `ANTHROPIC_API_KEY` (optional) and ideally a Helius `SOLANA_RPC_URL`.
 - Simulation engine + `ChatSim`, `BrowserSim`, `WalletPromptSim`
 - Track 1 (Common) fully built: 6 lessons, ~15 scenarios
 - Local progress (localStorage) → then Neon + anonymous accounts

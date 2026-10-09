@@ -15,7 +15,7 @@ type FlagContextValue = {
 
 export const FlagContext = createContext<FlagContextValue | null>(null);
 
-function useFlagContext() {
+export function useFlagContext() {
   const ctx = useContext(FlagContext);
   if (!ctx) throw new Error("FlagTarget must be rendered inside a FlagContext provider");
   return ctx;

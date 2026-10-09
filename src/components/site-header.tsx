@@ -14,9 +14,12 @@ export function SiteHeader() {
           <Link href="/learn" className={buttonVariants({ variant: "ghost" })}>
             Tracks
           </Link>
+          <Link href="/analyze" className={buttonVariants({ variant: "ghost" })}>
+            Token Check
+          </Link>
           <Link
             href="/simulate/airdrop-that-wasnt"
-            className={buttonVariants({ variant: "default" })}
+            className={buttonVariants({ variant: "default", className: "hidden sm:inline-flex" })}
           >
             Try a simulation
           </Link>

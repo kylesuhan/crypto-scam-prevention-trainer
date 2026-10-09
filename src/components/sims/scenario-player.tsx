@@ -15,6 +15,7 @@ import { ChatSim } from "./chat-sim";
 import { BrowserSim } from "./browser-sim";
 import { WalletPromptSim } from "./wallet-prompt-sim";
 import { InboxSim } from "./inbox-sim";
+import { ChartSim } from "./chart-sim";
 
 function StepView({ step }: { step: Step }) {
   switch (step.kind) {
@@ -26,6 +27,8 @@ function StepView({ step }: { step: Step }) {
       return <WalletPromptSim step={step} />;
     case "inbox":
       return <InboxSim step={step} />;
+    case "chart":
+      return <ChartSim step={step} />;
   }
 }
 

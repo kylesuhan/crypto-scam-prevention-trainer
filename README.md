@@ -28,15 +28,33 @@ Run the tests (scoring logic and scenario content checks):
 npm test
 ```
 
+## Token Check (Guard Score)
+
+`/analyze` takes a Solana token mint address and returns a **Guard Score** (0–100, higher is safer):
+
+- **Facts** (`src/lib/token/facts.ts`): mint/freeze authority and Token-2022 extensions from Solana
+  RPC; liquidity, market cap, volume, and buys/sells from DexScreener.
+- **Score** (`src/lib/token/score.ts`): deterministic penalties computed in code. The AI never
+  changes the score, so it's reproducible and can't be manipulated through a token's metadata.
+- **Explanation** (`src/lib/token/ai.ts`): Claude (`claude-opus-5-5`) explains the result in plain
+  English with structured output. Creator-written name/symbol are passed as untrusted data.
+
+Environment variables (see `.env.example`): `ANTHROPIC_API_KEY` (optional, enables explanations) and
+`SOLANA_RPC_URL` (optional, defaults to the public RPC). Each AI explanation is a paid Claude API call;
+results are cached for 5 minutes and requests are rate-limited per IP (in memory, best-effort).
+
 ## Project layout
 
 ```
 src/
   app/                     routes: /, /learn, /simulate/[scenario]
-  components/sims/         simulation engine: ScenarioPlayer, ChatSim, BrowserSim, WalletPromptSim, InboxSim
+  app/api/analyze/         Token Check API (Guard Score + Claude explanation)
+  components/sims/         simulation engine: ScenarioPlayer, ChatSim, BrowserSim, WalletPromptSim, InboxSim, ChartSim
   content/tracks.ts        the five training tracks
   content/scenarios/       scenario definitions (typed data, one file per scenario)
   lib/sims/                scenario types and scoring
+  lib/charts/              synthetic rug-pull chart pattern generators
+  lib/token/               token facts, Guard Score, Claude explanation, rate limiting
   lib/progress.ts          local progress (browser storage; moves to Postgres in Phase 2)
 ```
 
@@ -53,4 +71,5 @@ Keep everything fictional and inert: no real brands, live URLs, or funded addres
 
 ## Deploy
 
-Import the repo in Vercel (framework preset: Next.js). No environment variables are needed yet.
+Import the repo in Vercel (framework preset: Next.js). Environment variables are optional; see
+`.env.example`.

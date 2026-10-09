@@ -5,6 +5,8 @@ import { doubleYourSol } from "./double-your-sol";
 import { walletFromAnAd } from "./wallet-from-an-ad";
 import { accountLocked } from "./account-locked";
 import { twelveWords } from "./twelve-words";
+import { spotTheRug } from "./spot-the-rug";
+import { slowBleed } from "./slow-bleed";
 
 // Order within a track is the recommended learning order.
 export const scenarios: Scenario[] = [
@@ -14,6 +16,8 @@ export const scenarios: Scenario[] = [
   doubleYourSol,
   accountLocked,
   walletFromAnAd,
+  spotTheRug,
+  slowBleed,
 ];
 
 export function getScenario(slug: string) {

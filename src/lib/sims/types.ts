@@ -1,4 +1,5 @@
 import type { TrackSlug } from "@/content/tracks";
+import type { ChartPattern } from "@/lib/charts/patterns";
 
 /** A red flag the learner should spot. Referenced by `Flaggable` elements via `flag`. */
 export type RedFlag = {
@@ -97,7 +98,21 @@ export type InboxStep = {
   choices: Choice[];
 };
 
-export type Step = ChatStep | BrowserStep | WalletPromptStep | InboxStep;
+export type ChartStep = {
+  kind: "chart";
+  prompt: string;
+  token: { name: string; symbol: string };
+  pattern: ChartPattern;
+  seed: number;
+  /** Market and on-chain facts shown beside the chart. The flaggable part of the step. */
+  stats: WalletRow[];
+  /** What happened after the learner's decision point, shown with the full chart. */
+  outcome: string;
+  flags: RedFlag[];
+  choices: Choice[];
+};
+
+export type Step = ChatStep | BrowserStep | WalletPromptStep | InboxStep | ChartStep;
 
 export type Scenario = {
   slug: string;

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Award, Flag, MousePointerClick, ShieldCheck } from "lucide-react";
+import { ArrowRight, Award, Flag, MousePointerClick, Search, ShieldCheck } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { TrackIcon } from "@/components/track-icon";
@@ -63,6 +63,25 @@ export default function Home() {
               <p className="mt-1 text-sm text-muted-foreground">{text}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-16">
+        <div className="flex flex-col gap-4 rounded-2xl border bg-card p-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="space-y-1">
+            <h2 className="flex items-center gap-2 text-xl font-semibold">
+              <Search className="size-5 text-primary" aria-hidden />
+              Check a token before you buy
+            </h2>
+            <p className="text-sm text-muted-foreground">
+              Paste any Solana token address to get a Guard Score: mint and freeze powers, hidden Token-2022
+              features, holder concentration, liquidity, and honeypot signals, explained by Claude.
+            </p>
+          </div>
+          <Link href="/analyze" className={buttonVariants({ size: "lg", className: "shrink-0" })}>
+            Open Token Check
+            <ArrowRight data-icon="inline-end" aria-hidden />
+          </Link>
         </div>
       </section>
 

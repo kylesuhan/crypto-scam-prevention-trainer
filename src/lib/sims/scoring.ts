@@ -11,6 +11,8 @@ export function flaggablesOf(step: Step): Flaggable[] {
       return [step.origin, ...step.balanceChanges, ...step.instructions, ...step.notes];
     case "inbox":
       return [step.from, step.subject, ...step.blocks];
+    case "chart":
+      return step.stats;
   }
 }
 
