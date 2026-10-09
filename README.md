@@ -1,4 +1,4 @@
-# ScamShield — Crypto Scam Prevention Trainer
+# Scam Guard — Crypto Scam Prevention Trainer
 
 Hands-on training for spotting crypto scams: phishing, fake airdrops, wallet drainers,
 social engineering, and rug pulls. Learners work through sandboxed simulations (fake DMs,

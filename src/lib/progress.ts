@@ -3,8 +3,8 @@
 import { useMemo, useSyncExternalStore } from "react";
 
 // Phase 1: progress lives in the browser only. Phase 2 moves it to Postgres (see PLAN.md §6).
-const KEY = "scamshield:progress:v1";
-const EVENT = "scamshield:progress";
+const KEY = "scamguard:progress:v1";
+const EVENT = "scamguard:progress";
 
 type Progress = Record<string, { best: number; attempts: number }>;
 

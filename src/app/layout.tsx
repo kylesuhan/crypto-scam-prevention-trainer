@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "ScamShield — Crypto Scam Prevention Trainer",
-    template: "%s · ScamShield",
+    default: "Scam Guard — Crypto Scam Prevention Trainer",
+    template: "%s · Scam Guard",
   },
   description:
     "Learn to spot crypto scams before they cost you. Hands-on simulations of phishing, wallet drainers, rug pulls, and social engineering — with verifiable credentials on Solana.",

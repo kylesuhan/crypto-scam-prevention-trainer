@@ -1,4 +1,4 @@
-# ScamShield — Crypto Scam Prevention Trainer (Project Plan)
+# Scam Guard — Crypto Scam Prevention Trainer (Project Plan)
 
 > Working name. A Solana-connected training app that teaches people to recognize common,
 > uncommon, hard-to-spot, and social-engineering crypto scams through hands-on simulations,
@@ -17,7 +17,9 @@
 4. **Ship on Vercel.** Next.js App Router, serverless-friendly, zero custom infrastructure for the MVP.
 
 ### Non-goals (for MVP)
-- No token / no speculative tokenomics (a "scam-prevention token" would itself look like a scam).
+- No token in the MVP. The $GUARD utility token is designed in [TOKENOMICS.md](TOKENOMICS.md)
+  and only launches in Phase 5 after legal review, audit, and a devnet season. It must pass the
+  app's own rug-pull checklist and never gate core training.
 - No real-funds transactions, ever. No mainnet until the credential flow is audited.
 - No scam-reporting / fund-recovery service (that space is full of *recovery scams*; see §4.4).
 
@@ -278,11 +280,14 @@ crypto-scam-prevention-trainer/
 - **Teams / Enterprise**: per-seat pricing, admin dashboard, custom scenarios, completion reports
 - **Sponsored tracks** from wallets/exchanges (clearly labelled, editorially independent)
 - Grants: Solana Foundation, Superteam, public-goods funding rounds
+- **$GUARD token** (Phase 5, see [TOKENOMICS.md](TOKENOMICS.md)): scam-report staking and
+  bounties, reviewer curation, API credits, and governance. Funded by usage, not a token sale.
 
 ---
 
 ## 11. Open Questions
-1. Product name & domain (check trademark; buy look-alike domains defensively).
+1. ~~Product name~~ → **Scam Guard**, token **$GUARD**. Domain: **scamguard.io** (available,
+   register it now). Still to do: trademark search; buy look-alike domains defensively.
 2. Credential standard: Token-2022 NonTransferable vs Metaplex Core soulbound — Core gives nicer wallet display.
 3. Allow fully anonymous (no wallet, no email) training? Recommended: yes — lower barrier, wallet only needed for credentials.
 4. Who reviews scenario accuracy? (Security researcher advisor would add a lot of credibility.)

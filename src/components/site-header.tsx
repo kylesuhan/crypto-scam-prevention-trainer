@@ -8,7 +8,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-semibold">
           <ShieldCheck className="size-5 text-primary" aria-hidden />
-          ScamShield
+          Scam Guard
         </Link>
         <nav className="flex items-center gap-1 text-sm">
           <Link href="/learn" className={buttonVariants({ variant: "ghost" })}>
