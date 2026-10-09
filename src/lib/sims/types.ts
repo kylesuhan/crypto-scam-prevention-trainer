@@ -49,6 +49,8 @@ export type BrowserBlock = Flaggable &
     | { type: "stat"; label: string; value: string }
     | { type: "button"; text: string; tone?: "primary" | "subtle" }
     | { type: "input"; label: string; placeholder: string }
+    | { type: "list"; title: string; items: string[] }
+    | { type: "result"; title: string; url: string; snippet: string; sponsored?: boolean }
   );
 
 export type BrowserStep = {

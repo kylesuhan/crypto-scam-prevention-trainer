@@ -22,6 +22,12 @@ npm run dev
 
 Open http://localhost:3000.
 
+Run the tests (scoring logic and scenario content checks):
+
+```bash
+npm test
+```
+
 ## Project layout
 
 ```
@@ -39,7 +45,9 @@ src/
 1. Create `src/content/scenarios/<slug>.ts` exporting a `Scenario` (see `src/lib/sims/types.ts`).
 2. Each step lists its `flags` (the red flags to find) and `choices`. Mark the elements in the
    step that are red flags with `flag: "<flag id>"`. Elements without `flag` are decoys.
-3. Register it in `src/content/scenarios/index.ts`.
+3. Register it in `src/content/scenarios/index.ts`. Order within a track is the learning order.
+4. Run `npm test`. It fails if a flag is never marked, an element points to a missing flag,
+   ids repeat, or a step lacks a safe or risky choice.
 
 Keep everything fictional and inert: no real brands, live URLs, or funded addresses.
 

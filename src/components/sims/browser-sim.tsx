@@ -33,6 +33,28 @@ function Block({ block }: { block: BrowserBlock }) {
           {block.text}
         </div>
       );
+    case "list":
+      return (
+        <div className="space-y-1.5">
+          <div className="text-xs font-medium text-zinc-400">{block.title}</div>
+          <ul className="list-disc space-y-1 pl-5 text-sm text-zinc-200">
+            {block.items.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      );
+    case "result":
+      return (
+        <div className="space-y-0.5 text-left">
+          <div className="flex items-center gap-2 text-xs text-zinc-400">
+            {block.sponsored && <span className="font-semibold text-zinc-200">Sponsored</span>}
+            <span className="truncate">{block.url}</span>
+          </div>
+          <div className="text-lg text-sky-400">{block.title}</div>
+          <p className="text-sm text-zinc-400">{block.snippet}</p>
+        </div>
+      );
     case "input":
       return (
         <div className="space-y-1.5">

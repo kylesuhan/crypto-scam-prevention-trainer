@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { ScenarioPlayer } from "@/components/sims/scenario-player";
-import { getScenario, scenarios } from "@/content/scenarios";
+import { getScenario, nextScenario, scenarios } from "@/content/scenarios";
 import { getTrack } from "@/content/tracks";
 
 export function generateStaticParams() {
@@ -32,6 +32,7 @@ async function ScenarioContent({ params }: { params: Promise<{ scenario: string 
   const scenario = getScenario(slug);
   if (!scenario) notFound();
   const track = getTrack(scenario.track);
+  const next = nextScenario(scenario.slug);
 
   return (
     <>
@@ -43,7 +44,11 @@ async function ScenarioContent({ params }: { params: Promise<{ scenario: string 
         <h1 className="text-3xl font-bold tracking-tight">{scenario.title}</h1>
         <p className="text-muted-foreground">{scenario.summary}</p>
       </header>
-      <ScenarioPlayer scenario={scenario} />
+      <ScenarioPlayer
+        key={scenario.slug}
+        scenario={scenario}
+        next={next && { slug: next.slug, title: next.title }}
+      />
     </>
   );
 }

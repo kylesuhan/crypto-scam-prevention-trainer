@@ -26,7 +26,9 @@ function StepView({ step }: { step: Step }) {
   }
 }
 
-export function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
+type NextUp = { slug: string; title: string };
+
+export function ScenarioPlayer({ scenario, next: nextUp }: { scenario: Scenario; next?: NextUp }) {
   const [stepIndex, setStepIndex] = useState(0);
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [results, setResults] = useState<StepResult[]>([]);
@@ -73,7 +75,7 @@ export function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
   };
 
   if (finished) {
-    return <Debrief scenario={scenario} results={results} onRestart={restart} />;
+    return <Debrief scenario={scenario} results={results} next={nextUp} onRestart={restart} />;
   }
 
   const chosen = revealed ? step.choices.find((c) => c.id === current.choiceId) : undefined;
@@ -179,10 +181,12 @@ export function ScenarioPlayer({ scenario }: { scenario: Scenario }) {
 function Debrief({
   scenario,
   results,
+  next,
   onRestart,
 }: {
   scenario: Scenario;
   results: StepResult[];
+  next?: NextUp;
   onRestart: () => void;
 }) {
   const score = scoreScenario(results);
@@ -233,10 +237,17 @@ function Debrief({
           <RotateCcw data-icon="inline-start" aria-hidden />
           Try again
         </Button>
-        <Link href="/learn" className={buttonVariants({ size: "lg" })}>
-          Back to tracks
-          <ArrowRight data-icon="inline-end" aria-hidden />
-        </Link>
+        {next ? (
+          <Link href={`/simulate/${next.slug}`} className={buttonVariants({ size: "lg" })}>
+            Next: {next.title}
+            <ArrowRight data-icon="inline-end" aria-hidden />
+          </Link>
+        ) : (
+          <Link href="/learn" className={buttonVariants({ size: "lg" })}>
+            Back to tracks
+            <ArrowRight data-icon="inline-end" aria-hidden />
+          </Link>
+        )}
       </div>
     </div>
   );
